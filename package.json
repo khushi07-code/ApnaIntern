@@ -1,6 +1,6 @@
 {
-  "engines":{
-    "node":"22.19.0"
+  "engines": {
+    "node": "22.19.0"
   },
   "name": "minorproject",
   "version": "1.0.0",
@@ -13,6 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "connect": "^3.7.0",
     "connect-flash": "^0.1.1",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
@@ -20,6 +21,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "method-override": "^3.0.0",
+    "mongo": "^0.1.0",
     "mongoose": "^8.18.2",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",

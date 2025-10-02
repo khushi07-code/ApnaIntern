@@ -37,6 +37,13 @@ main().then((res)=>{
     console.log(err);
 });
 
+const store=MongoStore.create({
+  mongoUrl: process.env.MONGODBURL,
+  crypto: {
+    secret: process.env.SECRET
+  },
+  touchAfter:24*3600
+})
 
 const sessionOption={ 
     secret:process.env.SECRET,
