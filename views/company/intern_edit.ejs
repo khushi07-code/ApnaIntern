@@ -1,0 +1,84 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+<div class="row mt-3 ">
+    <h2 class="col-6 offset-3"><b>Edit Internship</b></h2>
+    <div class="col-6 offset-3">
+        <form method="post" action="/company/internship/<%=internship.id%>?_method=PUT" novalidate class="needs-validation mb-5">
+                <div class="mb-3"> 
+                    <label for="title" class="form-label"><b>Title:</b></label>
+                    <input id="title" name="list[title]" placeholder="title" type="text" class="form-control"  value="<%=internship.title%>" required>
+                    <div class="valid-feedback">username is valid!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label"><b>Location:</b></label>
+                    <input id="location" name="list[location]" placeholder="location"  type="text" class="form-control" value="<%=internship.location%>"   required>
+                </div>
+                <div class="mb-3 ">
+                            <div class="mb-3 d-flex justify-content-between ">
+                            <label class="form-label"><b>Internship-type:</b></label>
+                            <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="list[internshiptype]" id="internshiptypepaid" value="paid">
+                                    <label class="form-check-label" for="internshiptypepaid">Paid</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="list[internshiptype]" id="internshiptypeunpaid" value="unpaid" >
+                                <label class="form-check-label" for="internshiptypeunpaid">Unpaid</label>
+                            </div>
+                </div>
+                </div>
+                <div class="mb-3 "  id="stipendcontainer">
+                            <label for="stipend" class="form-label"><b>Stipend:</b></label>
+                            <input id="stipend" name="list[stipend]" placeholder="stipend"  type="number" class="form-control" value="<%=internship.stipend%>"  required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label"><b>Description:</b></label>
+                    <textarea id="description" name="list[description]" placeholder="decription"  type="text" class="form-control"  required><%=internship.description%></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="requirement" class="form-label"><b>requirement:</b></label>
+                    <textarea id="requirement" name="list[requirement]" placeholder="requirement"  type="number" class="form-control" required><%=internship.requirement%></textarea>
+                </div>
+                 <div class="mb-3">
+                    <label for="openings" class="form-label"><b>number of Opening:</b></label>
+                    <input id="openings" name="list[openings]" placeholder="number of openings"  type="number" class="form-control" value="<%=internship.openings%>" required>
+                </div>
+                <button class="btn btn-success">Edit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleStipend(show) {
+        const container = document.getElementById('stipendcontainer');
+        const input = document.getElementById('stipend');
+        if (show) {
+            container.style.display = 'block';
+            input.required = true;
+        } else {
+            container.style.display = 'none';
+            input.required = false;
+            input.value = ''; // Optional: clear value if unpaid
+        }
+    }
+
+    // Run on page load to set initial visibility
+    window.addEventListener('DOMContentLoaded', () => {
+        const paidRadio = document.getElementById('internshiptypepaid');
+        const unpaidRadio = document.getElementById('internshiptypeunpaid');
+
+        // Check which radio is selected and toggle accordingly
+        if ("<%=internship.internshiptype%>"=="paid") {
+            paidRadio.checked=true
+            toggleStipend(true);
+        } else {
+            unpaidRadio.checked=true;
+            toggleStipend(false);
+        }
+
+        // Add event listeners for dynamic change
+        paidRadio.addEventListener('change', () => toggleStipend(true));
+        unpaidRadio.addEventListener('change', () => toggleStipend(false));
+    });
+</script>
+
+</body>

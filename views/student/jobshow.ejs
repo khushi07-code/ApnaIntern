@@ -1,0 +1,36 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <%- include("../includes/backarrow.ejs",{pathto:path}) %>
+        <div class="card col-6 offset-3 intern-card">
+           <div class="card-body">
+                <div >
+                    <h5 class="card-title"><b><%= job.title %></b></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= company.companyname%></h6>
+                    <h6><b>location:</b></h6>
+                    <p class="card-text"><%=job.location%></p>
+                       <h6><b>Jobtype:</b></h6>
+                    <p class="card-text"><%= job.jobType%></p>
+                    <h6><b>Salary:</b></h6>
+                    <p class="card-text"><%=job.salaryRange.min%>-<%=job.salaryRange.max%>/month</p>
+                    <h6><b>description:</b></h6>
+                    <p class="card-text"><%=job.description%></p>
+                    <h6><b>requirement:</b></h6>
+                    <p class="card-text"><%=job.requirement%></p>
+                    <h6><b>Number of opening:</b></h6>
+                    <p class="card-text"><%=job.openings%></p>
+                </div>
+                <div class="border-top pt-3">
+                    <% if (applied.length==0) { %>
+                        <form method="post" action="/student/job/<%=job._id%>">
+                            <button class="btn btn-primary">Apply</button>
+                        </form>
+                    <% } else { %>
+                        <button class="btn btn-primary" disabled>Apply</button>
+                    <% } %>
+                </div> 
+            </div>
+        </div>
+
+    </div>
+</body>

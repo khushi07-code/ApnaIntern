@@ -1,0 +1,48 @@
+<%- layout("/layouts/boilerplate")%>
+
+<body>
+    <div class="mx-5">
+    <h1 class="student-title">Hi,<%=student[0].name %></h1>
+    <br>
+    <h6>Explore a World of opportunities</h6>
+    <br>
+    <h4>Explore internships</h4>
+    <div class="show-list p-3 mb-3">
+        <div class="row">
+            <% for(internship of internships){ %>
+            <div class="card mx-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= internship.title %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= internship.internshiptype %></h6>
+                    <p class="card-text"><%= internship.location %></p>
+                    <p class="card-text"><%= internship.stipend %>/month</p>
+                    <a href="/student/internship/<%=internship._id%>" class="btn btn-outline-primary mt-2">Details</a>
+                </div>
+            </div>
+         <% } %>
+        <div class="col more-option"><a href="/student/internship" class="btn btn-outline-primary">more</a></div>
+        </div>
+    </div>
+    <br>
+    <h4>Explore Jobs</h4>
+    <div class="show-list p-3 mb-5">
+        <div class="row">
+            <% for(job of jobs){ %>
+            <div class="card mx-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= job.title %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= job.jobType %></h6>
+                    <p class="card-text"><%= job.location %></p>
+                    <p class="card-text"><%= job.stipend %>/month</p>
+                    <a href="/student/job/<%=job._id%>" class="btn btn-outline-primary mt-2">Details</a>
+                </div>
+            </div>
+            <% } %>
+            <div class="col more-option"><a href="/student/job" class="btn btn-outline-primary">more</a></div>
+        </div>
+        
+    </div>
+
+    </div>
+   
+</body>

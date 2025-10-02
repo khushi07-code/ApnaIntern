@@ -1,0 +1,21 @@
+<%- layout("/layouts/boilerplate")%>
+<div class="row mt-3">
+    <h3 class="col-6 offset-3">Profile</h3>
+    <div class="col-6 offset-3">
+        <div class="card mt-3 mb-4" >
+            <div class="card-body">
+                <h5 class="card-title"><%=company[0].companyName%></h5>
+                <h6 class="card-text"><%=User.email%></h6>
+                <hr>
+                <p class="card-text"><b>Industry type</b><br><%=company[0].typeOf%></p>
+                <p class="card-text"><b>Location</b><br><%=company[0].location.city%>,<%=company[0].location.state%>,<%=company[0].location.country%></p>
+                <p class="card-text"><b>Details</b><br><%=company[0].companyDetails%></p>
+                <p class="card-text"><b>website</b><br><%=company[0].website%></p>
+                <p class="card-text"><b>contact</b><br><%=company[0].contactNumber%></p>
+                <form action="/company/profile/<%=company[0].id%>/edit" method="get">
+                    <button class="btn btn-primary">Edit</button>
+                </form>
+            </div>
+        </div>   
+    </div>
+</div>

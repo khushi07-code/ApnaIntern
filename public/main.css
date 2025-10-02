@@ -1,0 +1,121 @@
+/* body{
+    background-color: #b3d4ff;
+} */
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+
+}
+
+
+.display-1{
+    align-items: center;
+    justify-content: center;
+    margin-top: 20%;
+    font-weight: bolder;
+    padding-left: 2rem;
+}
+
+.navbar{
+    height: 5rem;
+   background-color: #ffffff;
+   border-bottom: 2px solid #db1dae;
+}
+.fa-chalkboard-user{
+    margin-left:1rem;
+    color:#2a2a72 ;
+    font-size:2rem;
+}
+
+.nav-link{
+    color:#222222 !important;
+}
+
+/* footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #222;
+    margin:0.3rem;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info{
+    display:flex;
+    height:8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content:center ;
+    align-items: space-evenly;
+
+}
+.f-info-links ,.f-info-social,.f-info-brand{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.f-info-social i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.lead-1{
+    font-size:2rem;
+    padding-left: 2rem;
+}
+.secondpage{
+    height: 20rem;
+    background-color: aliceblue;
+    padding:0 2rem 0 2rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.heading-1{
+    text-align: center;
+    font-weight: 800;
+    font-size:3.5rem;
+}
+.body-1{
+    font-weight:400;
+    font-size:1.2rem;
+    text-align: center;
+
+}
+
+.img-fluid{
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.thirdpage{
+    padding:1rem 4rem 1rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    /* background-color:  #8495ac; */
+    background-color:#bbc2e3 ;
+}
+.offer-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.heading-2{
+    font-size: 2.7rem;
+    font-weight: 700;
+}
+.body-2{
+    font-weight:400;
+    font-size:1.2rem;
+}
+.container-job{
+    padding: 0 3rem 0 3rem;
+}
+
+.show-list{
+    background-color: aliceblue;
+}
+

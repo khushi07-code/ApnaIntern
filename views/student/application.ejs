@@ -1,0 +1,27 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <br>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+        <% for(let i=0;i<applications.length;i++){%>
+        <a
+            <% if(applications[i].internshipId){%>
+                href="/student/internship/<%=applications[i].internshipId%>"
+            <%}%>
+            <% if(applications[i].jobId){%>
+                href="/student/job/<%=applications[i].jobId%>"
+            <%}%>
+        style="text-decoration:none;">
+        <div class="card col intern-card" style="width: 20rem;">
+           <div class="card-body">
+                <div>
+                    <h5 class="card-title"><%=internjobCompanylist[i].companyname%></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%=requestlist[i].title%></h6>
+                    <p class="card-text"><%=applications[i].Status%></p>
+                    <p class="card-text">applied on <%=applications[i].appliedAt.toDateString();%></p>   
+                </div>
+            </div>
+        </div>
+        </a>
+        <% } %>
+    </div>
+</body>

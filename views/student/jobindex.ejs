@@ -1,0 +1,26 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <h1>Job</h1>
+    <br>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+        <% for(let i=0 ; i<enrichedjobs.length;i++ ){%>
+        <div class="card col intern-card" style="width: 20rem;">
+           <div class="card-body">
+                <div>
+                    <h5 class="card-title"><%= enrichedjobs[i].title %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%=enrichedjobs[i].company.companyname%></h6>
+                    <p class="card-text"><%=enrichedjobs[i].jobType%></p></p>
+                    <p class="card-text"><%=enrichedjobs[i].location%></p>
+                    <p class="card-text"><%=enrichedjobs[i].salaryRange.min%>-<%= enrichedjobs[i].salaryRange.max %>/month</p>
+                </div>
+                <div class="border-top pt-3 indexcard-link ">
+                    <a href="/student/job/<%=enrichedjobs[i]._id%>" class="btn btn-primary">details</a>
+                    <form method="post" action="/student/job/<%=enrichedjobs[i]._id%>">
+                        <button class="btn btn-outline-primary mx-2">Apply</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</body>

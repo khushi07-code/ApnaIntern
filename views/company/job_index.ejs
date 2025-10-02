@@ -1,0 +1,20 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <h1 class="mt-4">Job</h1>
+    <br>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+        <% for(job of jobs) {%>
+        <a href="/company/job/<%=job.id%>" class="com-index">
+            <div class="card col intern-card">
+                <div class="card-body">
+                    <h5 class="card-title"><%=job.title %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= job.jobType%></h6>
+                    <p class="card-text"><%=job.location%></p>
+                    <p class="card-text"><%=job.salaryRange.min%>-<%=job.salaryRange.max%>/month</p>
+                    <span class="card-text">opening:<%=job.openings%></span>
+                </div>
+            </div>
+        </a>
+        <% } %>
+    </div>
+</body>

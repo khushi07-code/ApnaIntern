@@ -1,0 +1,56 @@
+<%- layout("/layouts/boilerplate")%>
+<div class="row mt-3 ">
+     <%- include("../includes/new_top.ejs") %>
+    <div class="col-6 offset-3 m-3">
+        <form method="post" action="/company" novalidate class="needs-validation mb-10">
+                <div class="mb-3"> 
+                    <label for="title" class="form-label"><b>Title:</b></label>
+                    <input id="title" name="list[title]" placeholder="title" type="text" class="form-control" required>
+                    <div class="valid-feedback">username is valid!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label"><b>Location:</b></label>
+                    <input id="location" name="list[location]" placeholder="location"  type="text" class="form-control"  required>
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                        <label for="jobtype" class="form-label"><b>Job-type:</b></label>
+                        <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="list[jobType]" id="inlineRadio1" value="Full-time">
+                                <label class="form-check-label" for="inlineRadio1">Full-time</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="list[jobType]s" id="inlineRadio2" value="Part-time">
+                                <label class="form-check-label" for="inlineRadio2">Part-time</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="list[jobType]" id="inlineRadio2" value="Contract">
+                                <label class="form-check-label" for="inlineRadio2">Contract</label>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="salarymin" class="form-label"><b>SalaryMin:</b></label>
+                        <input id="salarymin" name="list[salaryRange][min]" placeholder="min"  type="number" class="form-control "  required>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="salarymax" class="form-label"><b>SalaryMax:</b></label>
+                        <input id="salarymax" name="list[salaryRange][max]" placeholder="max"  type="number" class="form-control"  required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label"><b>Description:</b></label>
+                    <textarea id="description" name="list[description]" placeholder="decription"  type="text" class="form-control"  required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="requirement" class="form-label"><b>Requirement:</b></label>
+                    <textarea id="requirement" name="list[requirement]" placeholder="requirement"  type="number" class="form-control"  required></textarea>
+                </div>
+                 <div class="mb-3">
+                    <label for="openings" class="form-label"><b>Number of Opening:</b></label>
+                    <input id="openings" name="list[openings]" placeholder="number of openings"  type="number" class="form-control"  required>
+                </div>
+                <button class="btn btn-success">create</button>
+        </form>
+    </div>
+
+</div>

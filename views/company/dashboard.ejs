@@ -1,0 +1,23 @@
+<%- layout("/layouts/company")%>
+<body>
+    <link rel="stylesheet" href="/company.css">
+    <h2 class="my-4 mx-3"><b>Dashboard</b></h2>
+    <div class="stats">
+        <div class="card">
+            <h2 id="totalApplicants"><%=totalapplicant%></h2>
+            <p>Total Applicants</p>
+        </div>
+        <div class="card">
+            <h2 id="shortlisted"><%=shortlist%></h2>
+            <p>Shortlisted</p>
+        </div>
+        <div class="card">
+            <h2 id="hired"><%=hired%></h2>
+            <p>Hired</p>
+        </div>
+        <div class="card">
+            <h2 id="rejected"><%=rejected%></h2>
+            <p>Rejected</p>
+        </div>
+    </div>
+</body>

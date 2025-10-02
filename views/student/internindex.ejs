@@ -1,0 +1,25 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <h1 class="pt-4 px-4">Internship</h1>
+    <br>
+    <div class="d-flex flex-wrap justify-content-around p-2">
+        <% for(let i=0 ; i<enrichedInternships.length;i++ ) {%>
+        <div class="card intern-card" style="width: 20rem;">
+           <div class="card-body">
+                <div class="internship-text">
+                    <h5 class="card-title"><%=enrichedInternships[i].title %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%=enrichedInternships[i].company.companyName%></h6>
+                    <p class="card-text"><%=enrichedInternships[i].location%></p>
+                    <p class="card-text"><%=enrichedInternships[i].stipend%>/month</p>
+                </div>
+                <div class="border-top pt-3 indexcard-link">
+                    <a href="/student/internship/<%=enrichedInternships[i]._id%>" class="btn btn-primary">details</a>
+                        <form method="post" action="/student/internship/<%=enrichedInternships[i]._id%>">
+                            <button class="btn btn-outline-primary mx-2">Apply</button>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</body>

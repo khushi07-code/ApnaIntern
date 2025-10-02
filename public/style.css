@@ -1,0 +1,133 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+
+}
+.container,.container-fluid{
+    flex:1;
+}
+/* navbar */
+.navbar{
+    height: 5rem;
+    background-color: whitesmoke;
+}
+
+.fa-chalkboard-user{
+    margin-left:1rem;
+    color:#2a2a72 ;
+    font-size:2rem;
+}
+
+.nav-link{
+    color:#222222 !important;
+}
+
+/* footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #222;
+    margin:0.3rem;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info{
+    display:flex;
+    height:8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content:center ;
+    align-items: space-evenly;
+
+}
+.f-info-links ,.f-info-social,.f-info-brand{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+.f-info-social i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.card-text p{
+    font-weight: 400;
+
+}
+.intern-card{
+    margin:1rem;
+}
+
+.card-body a{
+    text-decoration: none;
+}
+
+.card-body{
+    display:flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.indexcard-link{
+    display: flex;
+}
+/* student first page */
+.student-title{
+    font-size: 4rem;
+    padding-top:2rem;
+}
+.more-option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.show-list{
+    background-color: aliceblue;
+}
+
+/* new-top */
+.new-button a{
+    text-align: center;
+    text-decoration: none;
+}
+.new-button a:active{
+    border-bottom:0.2rem solid black !important;
+}
+
+/* company index */
+.com-index{
+    text-decoration: none;
+}
+
+.com-index:hover{
+    opacity:0.6;
+}
+
+/* com-show */
+
+.card-link{
+    display: flex;
+}
+
+
+.sidebar{
+    position:relative;
+    left: 0;
+    height: 85vh; /* Full viewport height */
+    width: 17rem ; 
+    border-radius:2rem;
+    padding-top: 2rem;
+}
+.sidebar a{
+    font-weight: 600;
+    font-size: large;
+    text-align:left;
+    padding-left: 3rem;
+    margin-top:0.5rem;
+    border-color: white;
+    color:black
+}

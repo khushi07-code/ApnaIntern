@@ -1,0 +1,19 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <h1 class="mt-4">Internship</h1>
+    <br>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+        <% for(internship of internships) {%>
+        <a href="/company/internship/<%=internship._id%>" class="com-index">
+            <div class="card col intern-card">
+                <div class="card-body">
+                    <h5 class="card-title"><%= internship.title %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= internship.internshiptype%></h6>
+                    <p class="card-text"><%=internship.location%></p>
+                    <p class="card-text"><%=internship.stipend%>/month</p>
+                </div>
+            </div>
+        </a>
+        <% } %>
+    </div>
+</body>

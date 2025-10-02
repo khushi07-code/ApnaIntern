@@ -1,0 +1,46 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+<div class="row mt-3 ">
+    <div class="col-6 offset-3">
+        <h1 class="mt-2 mb-4">Edit profile</h1>
+        <form method="post" action="/company/profile/<%=company.id%>?_method=PUT" novalidate class="needs-validation mb-10">
+                <div class="mb-3"> 
+                    <label for="name" class="form-label"><b>Company Name</b></label>
+                    <input id="name" name="list[companyName]" placeholder="name" type="text" class="form-control" value="<%=company.companyName%>" required>
+                </div>
+                <div class="mb-3 ">
+                    <label for="typeOf" class="form-label"><b>Type Of Company</b></label>
+                    <input id="typeOf" name="list[typeOf]" placeholder="type of company"  type="text" class="form-control"value="<%=company.typeOf%>" required>
+                </div>
+                <div class="mb-3 ">
+                    <label for="companyDetails" class="form-label"><b>Details</b></label>
+                    <textarea id="companyDetails" name="list[companyDetails]" placeholder="detail descriiption"  type="text" class="form-control" rows=6 required><%=company.companyDetails%></textarea>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="locationcity" class="form-label"><b>City</b></label>
+                        <input id="locationcity" name="list[location][city]" placeholder="city name"  type="text" class="form-control" value="<%=company.location.city%>" required>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="locationstate" class="form-label"><b>State</b></label>
+                        <input id="locationstate" name="list[location][state]" placeholder="state"  type="text" class="form-control" value="<%=company.location.state%>" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="country" class="form-label"><b>Country</b></label>
+                    <input id="country" name="list[country]"  type="text" class="form-control" value="<%=company.location.country%>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactNumber" class="form-label"><b>ContactNumber</b></label>
+                    <input id="contactNumber" name="list[contactNumber]"  type="string" class="form-control" value="<%=company.contactNumber%>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="website" class="form-label"><b>Website</b></label>
+                    <input id="website" name="list[website]"  type="string" class="form-control" value="<%=company.website%>" required>
+                </div>
+                <button class="btn btn-success mb-3">Edit</button>
+        </form>
+    </div>
+</div>
+</body>

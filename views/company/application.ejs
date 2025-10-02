@@ -1,0 +1,34 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <%for(let i=0;i<applieds.length;i++){%>
+            <div class="col-6 offset-3 mt-4">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><%=applieds[i].user.username %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%=applieds[i].user.email %></h6>
+                    <p class="card-text"><%= applieds[i].Status %></p>
+                    <p class="card-text"><%= applieds[i].appliedAt.toDateString(); %></p>
+                    <div class="d-flex gap-3">
+                    <% if(applieds[i].Status=="pending"){ %>
+                    <form method="post" action="/company/application/<%= applieds[i]._id %>?action=accepted">
+                        <button class="btn btn-link" style="text-decoration: none;padding: 0px;">Accept</button>
+                    </form>
+                    <%}%>
+                    <% if(applieds[i].Status=="pending" || applieds[i].Status=="accepted"){ %>
+                    <form method="post" action="/company/application/<%= applieds[i]._id %>?action=rejected">
+                        <button class="btn btn-link" style="text-decoration: none;padding: 0px;" >Decline</button>
+                    </form>
+                    <%}%>
+                    <% if(applieds[i].Status=="accepted"){ %>
+                    <form method="post" action="/company/application/<%= applieds[i]._id %>?action=hired">
+                            <button class="btn btn-link" style="text-decoration: none;" >hired</button>
+                    </form>
+                    <%}%>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <%}%>
+    </div>
+</body>

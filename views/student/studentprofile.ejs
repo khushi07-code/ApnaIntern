@@ -1,0 +1,57 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+<div class="row mt-3 ">
+    <div class="col-6 offset-3">
+        <form method="post" action="/Student/details" novalidate class="needs-validation mb-10">
+                <div class="mb-3"> 
+                    <label for="name" class="form-label"><b>Name</b></label>
+                    <input id="name" name="list[name]" placeholder="name" type="text" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label"><b>Gender</b></label>
+                    <br>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="list[gender]" value="female" id="female" autocomplete="off" class="form-control">
+                        <label class="btn btn-outline-dark" for="female">Female</label>
+                        <input type="radio" class="btn-check" name="list[gender]" value="male" id="male" autocomplete="off" class="form-control">
+                        <label class="btn btn-outline-dark" for="male">Male</label>
+                        <input type="radio" class="btn-check" name="list[gender]" value="other" id="other" autocomplete="off" class="form-control">
+                        <label class="btn btn-outline-dark" for="other">Other</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                        <label for="address" class="form-label"><b>Address</b></label>
+                        <input id="address" name="list[address]" placeholder="plot no./house no....etc"  type="text" class="form-control"  required>
+                </div>
+                <div class="mb-3 ">
+                    <label for="College" class="form-label"><b>College</b></label>
+                    <input id="College" name="list[college]" placeholder="College name"  type="text" class="form-control"  required>
+                </div>
+                <div class="mb-3">
+                    <label for="Course" class="form-label"><b>Course</b></label>
+                    <input id="Course" name="list[course]" placeholder="Course"  type="text" class="form-control"  required>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-8">
+                        <label for="Branch" class="form-label"><b>Branch</b></label>
+                        <input id="Branch" name="list[branch]" placeholder="Branch"  type="text" class="form-control"  required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="semester" class="form-label"><b>Semester</b></label>
+                        <input id="semester" name="list[semester]" placeholder="semester"  type="number" class="form-control"  required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="skills" class="form-label"><b>Skills</b></label>
+                    <input id="skills" name="list[skills]" placeholder="skills"  type="text" class="form-control"  required>
+                </div>
+                <div class="mb-3">
+                    <label for="resume" class="form-label"><b>Resumelink</b></label>
+                    <input id="resume" name="list[resumeUrl]"  type="file" class="form-control"  required>
+                </div>
+                <button class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>
+</body>

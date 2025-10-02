@@ -1,0 +1,35 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <div class="card col-6 offset-3 intern-card">
+           <div class="card-body">
+                <div class="internship-text">
+                    <h4 class="card-title"><b><%= internship.title %></b></h4>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= internship.internshiptype%></h6>
+                    <h6><b>location:</b></h6>
+                    <p class="card-text"><%=internship.location%></p>
+                      <h6><b>stipend:</b></h6>
+                    <p class="card-text"><%=internship.stipend%>/month</p>
+                    <h6><b>description:</b></h6>
+                    <p class="card-text"><%=internship.description%></p>
+                    <h6><b>requirement:</b></h6>
+                    <p class="card-text"><%=internship.requirement%></p>
+                    <h6><b>Number of opening:</b></h6>
+                    <p class="card-text"><%=internship.openings%></p>
+                </div>
+                <div class="border-top pt-3 card-link">
+                    <form method="post" action="/company/internship/<%=internship._id%>?_method=Delete">
+                        <button class="btn btn-primary mx-3">Delete</button>
+                    </form>
+                    <form method="get" action="/company/internship/<%=internship._id%>/new">
+                        <button class="btn btn-outline-primary mx-3">Edit</button>
+                    </form>
+                    <form method="get" action="/company/internship/application/<%=internship._id%>">
+                        <button class="btn btn-outline-primary mx-3">application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
