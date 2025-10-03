@@ -1,6 +1,6 @@
 const data = [
     {
-    companyId:"683014858662722019fa93a3",
+    companyId:"68dfdb5776ca6ecd2b35161c",
     companyName: "TechNova Solutions",
     location: { city: "Bangalore", state: "Karnataka", country: "India" },
     website: "https://technova.in",
@@ -11,7 +11,7 @@ const data = [
     typeOf: "Startup"
   },
   {
-    companyId:"6830149c8662722019fa93ac",
+    companyId:"68dfdb7776ca6ecd2b351623",
     companyName: "GreenByte Innovations",
     location: { city: "Pune", state: "Maharashtra", country: "India" },
     website: "https://greenbyte.io",
@@ -22,7 +22,7 @@ const data = [
     typeOf: "SME"
   },
   {
-    companyId: "683014b78662722019fa93b5",
+    companyId: "68dfdb9a76ca6ecd2b35162a",
     companyName: "FinEdge Analytics",
     location: { city: "Mumbai", state: "Maharashtra", country: "India" },
     website: "https://finedge.com",
@@ -33,7 +33,7 @@ const data = [
     typeOf: "Enterprise"
   },
   {
-    companyId:"683014d28662722019fa93be",
+    companyId:"68dfdbb176ca6ecd2b351631",
     companyName: "EduSpark Labs",
     location: { city: "Hyderabad", state: "Telangana", country: "India" },
     website: "https://eduspark.org",
@@ -44,7 +44,7 @@ const data = [
     typeOf: "Startup"
   },
   {
-    companyId:"683014e78662722019fa93c7",
+    companyId:"68dfdbcd76ca6ecd2b351638",
     companyName: "ByteCraft Studios",
     location: { city: "Chennai", state: "Tamil Nadu", country: "India" },
     website: "https://bytecraft.in",
@@ -55,7 +55,7 @@ const data = [
     typeOf: "Agency"
   },
   {
-    companyId:"683014fa8662722019fa93d0",
+    companyId:"68dfdc0a76ca6ecd2b35163f",
     companyName: "AgroTech Ventures",
     location: { city: "Indore", state: "Madhya Pradesh", country: "India" },
     website: "https://agrotechventures.com",
@@ -66,7 +66,7 @@ const data = [
     typeOf: "SME"
   },
   {
-    companyId: "683015178662722019fa93d9",
+    companyId: "68dfdc2e76ca6ecd2b351646",
     companyName: "CyberNest Pvt Ltd",
     location: { city: "Noida", state: "Uttar Pradesh", country: "India" },
     website: "https://cybernest.in",
@@ -77,7 +77,7 @@ const data = [
     typeOf: "Enterprise"
   },
   {
-    companyId:"683015328662722019fa93e2",
+    companyId:"68dfdc5676ca6ecd2b35164d",
     companyName: "MedTech Pulse",
     location: { city: "Ahmedabad", state: "Gujarat", country: "India" },
     website: "https://medtechpulse.com",
@@ -88,7 +88,7 @@ const data = [
     typeOf: "Startup"
   },
   {
-    companyId: "6830154d8662722019fa93eb",
+    companyId: "68dfdc8d76ca6ecd2b351654",
     companyName: "PixelForge Interactive",
     location: { city: "Kolkata", state: "West Bengal", country: "India" },
     website: "https://pixelforge.in",
@@ -99,7 +99,7 @@ const data = [
     typeOf: "Agency"
   },
   {
-    companyId: "6830156f8662722019fa93f4",
+    companyId: "68dfdca976ca6ecd2b35165b",
     companyName: "LogiChain Systems",
     location: { city: "Jaipur", state: "Rajasthan", country: "India" },
     website: "https://logichain.io",

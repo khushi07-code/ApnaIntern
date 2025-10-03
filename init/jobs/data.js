@@ -8,7 +8,7 @@ const data= [
     openings: 3,
     salaryRange: { min: 80000, max: 120000 },
     jobType: "Full-time",
-    owner:"683014858662722019fa93a3",
+    owner:"68dfdca976ca6ecd2b35165b",
   },
   {
     title: "Marketing Manager",
@@ -19,7 +19,7 @@ const data= [
     openings: 2,
     salaryRange: { min: 60000, max: 90000 },
     jobType: "Full-time",
-    owner:"683014858662722019fa93a3",
+    owner:"68dfdb5776ca6ecd2b35161c",
   },
   {
     title: "Data Analyst",
@@ -30,7 +30,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 45000, max: 70000 },
     jobType: "Full-time",
-    owner:"6830149c8662722019fa93ac",
+    owner:"68dfdb5776ca6ecd2b35161c",
   },
   {
     title: "Graphic Designer",
@@ -41,7 +41,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 35000, max: 50000 },
     jobType: "Part-time",
-    owner:"6830149c8662722019fa93ac",
+    owner:"68dfdb7776ca6ecd2b351623",
   },
   {
     title: "Project Manager",
@@ -52,7 +52,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 90000, max: 130000 },
     jobType: "Full-time",
-    owner:"683014b78662722019fa93b5",
+    owner:"68dfdb7776ca6ecd2b351623",
   },
   {
     title: "Customer Support Specialist",
@@ -63,7 +63,7 @@ const data= [
     openings: 4,
     salaryRange: { min: 30000, max: 40000 },
     jobType: "Contract",
-    owner:"683014b78662722019fa93b5",
+    owner:"68dfdbb176ca6ecd2b351631",
   },
   {
     title: "UX/UI Designer",
@@ -74,7 +74,7 @@ const data= [
     openings: 2,
     salaryRange: { min: 55000, max: 75000 },
     jobType: "Full-time",
-    owner:"6830156f8662722019fa93f4",
+    owner:"668dfdbb176ca6ecd2b351631",
   },
   {
     title: "Business Analyst",
@@ -85,7 +85,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 60000, max: 85000 },
     jobType: "Full-time",
-    owner:"683014d28662722019fa93be",
+    owner:"68dfdb9a76ca6ecd2b35162a",
   },
   {
     title: "Sales Executive",
@@ -96,7 +96,7 @@ const data= [
     openings: 3,
     salaryRange: { min: 40000, max: 60000 },
     jobType: "Contract",
-    owner:"683014d28662722019fa93be",
+    owner:"68dfdb9a76ca6ecd2b35162a",
   },
   {
     title: "Operations Manager",
@@ -107,7 +107,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 70000, max: 95000 },
     jobType: "Full-time",
-    owner:"683014e78662722019fa93c7",
+    owner:"68dfdbcd76ca6ecd2b351638",
   },
   {
     title: "Digital Marketing Specialist",
@@ -118,7 +118,7 @@ const data= [
     openings: 2,
     salaryRange: { min: 45000, max: 65000 },
     jobType: "Part-time",
-    owner:"683014e78662722019fa93c7",
+    owner:"68dfdbcd76ca6ecd2b351638",
   },
   {
     title: "Content Strategist",
@@ -129,7 +129,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 50000, max: 70000 },
     jobType: "Full-time",
-    owner:"683014fa8662722019fa93d0",
+    owner:"68dfdc0a76ca6ecd2b35163f",
   },
   {
     title: "HR Coordinator",
@@ -140,7 +140,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 35000, max: 50000 },
     jobType: "Full-time",
-    owner:"683014fa8662722019fa93d0",
+    owner:"68dfdc0a76ca6ecd2b35163f",
   },
   {
     title: "Quality Assurance Engineer",
@@ -151,7 +151,7 @@ const data= [
     openings: 2,
     salaryRange: { min: 55000, max: 75000 },
     jobType: "Full-time",
-    owner:"683015178662722019fa93d9",
+    owner:"68dfdc2e76ca6ecd2b351646",
   },
   {
     title: "Network Administrator",
@@ -162,7 +162,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 60000, max: 80000 },
     jobType: "Full-time",
-    owner:"683015178662722019fa93d9",
+    owner:"68dfdc2e76ca6ecd2b351646",
   },
   {
     title: "Business Development Associate",
@@ -173,7 +173,7 @@ const data= [
     openings: 3,
     salaryRange: { min: 40000, max: 60000 },
     jobType: "Contract",
-    owner:"683015328662722019fa93e2",
+    owner:"68dfdc5676ca6ecd2b35164d",
   },
   {
     title: "IT Support Specialist",
@@ -184,7 +184,7 @@ const data= [
     openings: 2,
     salaryRange: { min: 35000, max: 50000 },
     jobType: "Part-time",
-    owner:"683015328662722019fa93e2",
+    owner:"68dfdc5676ca6ecd2b35164d",
   },
   {
     title: "Content Writer",
@@ -195,7 +195,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 30000, max: 45000 },
     jobType: "Contract",
-    owner:"6830154d8662722019fa93eb",
+    owner:"68dfdc8d76ca6ecd2b351654",
   },
   {
     title: "Operations Analyst",
@@ -206,7 +206,7 @@ const data= [
     openings: 1,
     salaryRange: { min: 50000, max: 70000 },
     jobType: "Full-time",
-    owner:"6830154d8662722019fa93eb",
+    owner:"68dfdc8d76ca6ecd2b351654",
   },
   {
     title: "DevOps Engineer",
@@ -217,7 +217,7 @@ const data= [
     openings: 2,
     salaryRange: { min: 75000, max: 100000 },
     jobType: "Full-time",
-    owner:"6830156f8662722019fa93f4",
+    owner:"68dfdca976ca6ecd2b35165b",
   }
 ];
 

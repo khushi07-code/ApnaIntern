@@ -7,7 +7,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1500,
     openings: 3,
-    owner:"683014858662722019fa93a3",
+    owner:"68dfdb5776ca6ecd2b35161c",
   },
   {
     title: "Marketing Intern",
@@ -17,7 +17,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 1,
-    owner:"683014858662722019fa93a3",
+    owner:"68dfdb5776ca6ecd2b35161c",
   },
   {
     title: "Data Science Intern",
@@ -27,7 +27,7 @@ let data=[
     internshiptype: "paid",
     stipend: 2000,
     openings: 2,
-    owner:"6830149c8662722019fa93ac",
+    owner:"68dfdb5776ca6ecd2b35161c",
   },
   {
     title: "Content Writing Intern",
@@ -37,7 +37,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 2,
-    owner:"6830149c8662722019fa93ac",
+    owner:"68dfdb7776ca6ecd2b351623",
   
   },
   {
@@ -48,7 +48,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1000,
     openings: 1,
-    owner:"683014b78662722019fa93b5",
+    owner:"68dfdb7776ca6ecd2b351623",
   },
   {
     title: "Cybersecurity Intern",
@@ -58,7 +58,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1800,
     openings: 2,
-    owner:"683014b78662722019fa93b5"
+    owner:"68dfdb9a76ca6ecd2b35162a"
   },
   {
     title: "HR Intern",
@@ -68,7 +68,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 1,
-    owner:"683014d28662722019fa93be",
+    owner:"68dfdb9a76ca6ecd2b35162a",
   },
   {
     title: "Finance Intern",
@@ -78,7 +78,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1200,
     openings: 1,
-    owner:"683014d28662722019fa93be",
+    owner:"68dfdbb176ca6ecd2b351631",
   },
   {
     title: "AI Intern",
@@ -88,7 +88,7 @@ let data=[
     internshiptype: "paid",
     stipend: 2500,
     openings: 2,
-    owner:"683014e78662722019fa93c7",
+    owner:"68dfdbb176ca6ecd2b351631",
   },
   {
     title: "Full-Stack Intern",
@@ -98,7 +98,7 @@ let data=[
     internshiptype: "paid",
     stipend: 2000,
     openings: 3,
-    owner:"683014e78662722019fa93c7",
+    owner:"68dfdbcd76ca6ecd2b351638",
   },
   {
     title: "Customer Support Intern",
@@ -108,7 +108,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 2,
-    owner:"683014fa8662722019fa93d0",
+    owner:"68dfdbcd76ca6ecd2b351638",
   },
   {
     title: "Event Management Intern",
@@ -118,7 +118,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 1,
-    owner:"683014fa8662722019fa93d0",
+    owner:"68dfdc0a76ca6ecd2b35163f",
   },
   {
     title: "Machine Learning Intern",
@@ -128,7 +128,7 @@ let data=[
     internshiptype: "paid",
     stipend: 2200,
     openings: 2,
-    owner:"683015178662722019fa93d9",
+    owner:"68dfdc0a76ca6ecd2b35163f",
   },
   {
     title: "Legal Intern",
@@ -138,7 +138,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 1,
-    owner:"683015178662722019fa93d9",
+    owner:"68dfdc2e76ca6ecd2b351646",
   },
   {
     title: "E-commerce Intern",
@@ -148,7 +148,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1300,
     openings: 2,
-    owner:"683015328662722019fa93e2",
+    owner:"68dfdc2e76ca6ecd2b351646",
  
   },
   {
@@ -159,7 +159,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1600,
     openings: 1,
-    owner:"683015328662722019fa93e2",
+    owner:"68dfdc5676ca6ecd2b35164d",
 
   },
   {
@@ -170,7 +170,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 1,
-    owner:"6830154d8662722019fa93eb",
+    owner:"68dfdc5676ca6ecd2b35164d",
 
   },
   {
@@ -181,7 +181,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1400,
     openings: 2,
-    owner:"6830154d8662722019fa93eb",
+    owner:"68dfdc8d76ca6ecd2b351654",
   },
   {
     title: "Product Management Intern",
@@ -191,7 +191,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1700,
     openings: 1,
-    owner:"6830154d8662722019fa93eb",
+    owner:"68dfdc8d76ca6ecd2b351654",
    
   },
   {
@@ -202,7 +202,7 @@ let data=[
     internshiptype: "unpaid",
     stipend: 0,
     openings: 1,
-    owner:"6830156f8662722019fa93f4",
+    owner:"68dfdca976ca6ecd2b35165b",
 
   },
   {
@@ -213,7 +213,7 @@ let data=[
     internshiptype: "paid",
     stipend: 1900,
     openings: 2,
-    owner:"6830156f8662722019fa93f4",
+    owner:"68dfdca976ca6ecd2b35165b",
   }
 ];
 
