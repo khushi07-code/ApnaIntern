@@ -9,9 +9,8 @@ const Company=require("../models/company.js");
 const Student = require("../models/student.js");
 
 router.get("/",wrapAsync(async(req,res)=>{
-    const internships=await Internship.find({});
-    const jobs=await Job.find({});
-    console.log(req.user.id);
+    const internships=await Internship.find({}).limit(4);
+    const jobs=await Job.find({}).limit(4);
     const student=await Student.find({studentId:req.user.id});
     res.render("student.ejs",{internships,jobs,student});
 }));
