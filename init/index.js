@@ -42,6 +42,9 @@ const fixedcompanyData = companydata.map( company=> ({
 }));
 
 async function initData(){
+    await Internship.deleteMany();
+    await Job.deleteMany();
+    await Company.deleteMany();
     await Internship.insertMany(fixedinternbData);
     await Job.insertMany(fixedJobData);
     await Company.insertMany(fixedcompanyData);
