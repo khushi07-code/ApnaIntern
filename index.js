@@ -86,8 +86,8 @@ app.use((req,res,next)=>{
 
 
 app.get("/",async(req,res)=>{
-    const internships=await Internship.find({}).limit(3);
-    const jobs=await Job.find({}).limit(3);
+    const internships=await Internship.find({}).limit(4);
+    const jobs=await Job.find({}).limit(4);
     res.render("home.ejs",{internships,jobs});
 });
 //student

@@ -118,4 +118,9 @@ body{
 .show-list{
     background-color: aliceblue;
 }
+.more-option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
