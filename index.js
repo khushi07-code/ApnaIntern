@@ -6,6 +6,7 @@ const app=express();
 const mongoose=require("mongoose");
 const ejsMate = require("ejs-mate");
 const path=require("path");
+const MongoStore = require('connect-mongo');
 const session=require("express-session");
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
