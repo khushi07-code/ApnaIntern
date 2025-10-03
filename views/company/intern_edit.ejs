@@ -9,9 +9,19 @@
                     <input id="title" name="list[title]" placeholder="title" type="text" class="form-control"  value="<%=internship.title%>" required>
                     <div class="valid-feedback">username is valid!</div>
                 </div>
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label for="city" class="form-label"><b>City:</b></label>
+                        <input id="city" name="list[location][city]" placeholder="city"  type="text" class="form-control" value="<%=internship.location.city%>" required>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="state" class="form-label"><b>State:</b></label>
+                        <input id="state" name="list[location][state]" placeholder="state"  type="text" class="form-control" value="<%=internship.location.state%>" required>
+                    </div>
+                </div>
                 <div class="mb-3">
-                    <label for="location" class="form-label"><b>Location:</b></label>
-                    <input id="location" name="list[location]" placeholder="location"  type="text" class="form-control" value="<%=internship.location%>"   required>
+                    <label for="country" class="form-label"><b>Country:</b></label>
+                    <input id="country" name="list[location][country]" placeholder="location"  type="text" class="form-control" value="<%=internship.location.country%>"  required>
                 </div>
                 <div class="mb-3 ">
                             <div class="mb-3 d-flex justify-content-between ">

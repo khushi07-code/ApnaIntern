@@ -7,7 +7,7 @@
                     <h4 class="card-title"><b><%= internship.title %></b></h4>
                     <h6 class="card-subtitle mb-2 text-body-secondary"><%= internship.internshiptype%></h6>
                     <h6><b>location:</b></h6>
-                    <p class="card-text"><%=internship.location%></p>
+                    <p class="card-text"><%=internship.location.city%>,<%=internship.location.state%>,<%=internship.location.country%></p>
                       <h6><b>stipend:</b></h6>
                     <p class="card-text"><%=internship.stipend%>/month</p>
                     <h6><b>description:</b></h6>

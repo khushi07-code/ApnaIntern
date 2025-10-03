@@ -17,7 +17,8 @@ const companySchema=new Schema({
         state: { type: String },
         country: {
             type: String,
-            default: "India"
+            default: "India",
+            required:true
         }
     },
     website: {

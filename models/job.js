@@ -16,8 +16,13 @@ const jobSchema = new Schema({
     required: true
   },
   location: {
-    type: String,
-    required: true
+    city: { type: String },
+    state: { type: String},
+    country: {
+            type: String,
+            default: "India",
+            required:true
+        }
   },
   listingtype: {
     type: String,

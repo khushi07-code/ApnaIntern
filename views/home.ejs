@@ -44,7 +44,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= internship.title %></h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary"><%= internship.internshiptype %></h6>
-                    <p class="card-text"><%= internship.location %></p>
+                    <p class="card-text"><%= internship.location.city%>,<%=internship.location.country%></p>
                     <p class="card-text"><%= internship.stipend %>/month</p>
                     <a href="/student/internship/<%=internship._id%>" class="btn btn-outline-primary mt-2">Details</a>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= job.title %></h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary"><%= job.jobType %></h6>
-                    <p class="card-text"><%= job.location %></p>
+                    <p class="card-text"><%= job.location.city%>,<%=job.location.country%></p>
                     <p class="card-text"><%= job.salaryRange.min%>-<%= job.salaryRange.max%>/month</p>
                     <a href="/student/job/<%=job._id%>" class="btn btn-outline-primary mt-2">Details</a>
                 </div>
