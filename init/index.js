@@ -1,20 +1,8 @@
 if(process.env.NODE_ENV!="production"){
     require("dotenv").config();
 }
+
 const mongoose=require("mongoose");
-async function main(){
-    console.log(process.env.MONGODBURL);
-    await mongoose.connect(process.env.MONGODBURL);
-}
-main().then((res)=>{
-    console.log(res);
-    console.log("connected to DB");
-}).catch((err)=>{
-    console.log(err);
-});
-
-
-
 const Internship=require("../models/internship.js");
 const Job=require("../models/job.js");
 const Company=require("../models/company.js");
@@ -51,4 +39,14 @@ async function initData(){
     console.log("data successfully loaded");
 }
 
-initData();
+async function main(){
+    console.log(process.env.MONGODBURL);
+    await mongoose.connect(process.env.MONGODBURL);
+}
+main().then((res)=>{
+    console.log(res);
+    console.log("connected to DB");
+    initData();
+}).catch((err)=>{
+    console.log(err);
+});
