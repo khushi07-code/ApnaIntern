@@ -1,0 +1,57 @@
+<!-- Floating Chat Button -->
+<div id="chat-toggle" title="Need help? Chat with us!">💬</div>
+
+
+<!-- Chat Window -->
+<div id="chat-window">
+  <div id="chat-header">
+    ApnaIntern Bot
+    <span id="chat-close">×</span>
+  </div>
+  <div id="chat-body"></div>
+  <input id="chat-input" placeholder="Ask about internships..." autocomplete="off" />
+</div>
+
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const socket = io("http://localhost:3000");
+    const toggle = document.getElementById("chat-toggle");
+    const chatWindow = document.getElementById("chat-window");
+    const closeBtn = document.getElementById("chat-close");
+    const input = document.getElementById("chat-input");
+    const body = document.getElementById("chat-body");
+
+    toggle.onclick = () => {
+      chatWindow.style.display = "flex";
+    };
+
+    closeBtn.onclick = () => {
+      chatWindow.style.display = "none";
+    };
+    
+
+    input.addEventListener("keypress", function (e) {
+      if (e.key === "Enter" && input.value.trim()) {
+        const msg = input.value;
+        appendMessage("user", msg);
+        socket.emit("userMessage", msg);
+        input.value = "";
+      }
+    });
+
+    socket.on("botReply", function (msg) {
+      appendMessage("bot", msg);
+    });
+
+    function appendMessage(sender, text) {
+      const div = document.createElement("div");
+      div.className = sender === "user" ? "user-message" : "bot-message";
+      div.textContent = text;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }
+  });
+</script>

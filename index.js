@@ -56,6 +56,18 @@ const sessionOption={
         maxAge:1000*60*60*24*3,
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
 app.use(session(sessionOption));
 app.use(flash());
 
