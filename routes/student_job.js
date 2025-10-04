@@ -8,11 +8,31 @@ const Application=require("../models/application.js");
 
 //job index
 router.get("/",isLoggedIn,wrapAsync(async(req,res)=>{
-    const jobs=await Job.find({});
+    let jobs;
+    const{location,jobType,categories}=req.query;
+    const filter = {};
+        if (location) {
+            try {
+                const parsedLocation = JSON.parse(location);
+                if (parsedLocation.city) filter["location.city"] = parsedLocation.city;
+                if (parsedLocation.country) filter["location.country"] = parsedLocation.country;
+            } catch (err) {
+                console.warn("Invalid location format");
+            }
+        }
+        if (categories) filter["category"]=categories;
+        if (jobType) filter["jobType"]=jobType;
+    if(filter){
+        jobs=await Job.find(filter);
+    }else{
+        jobs=await Job.find({});
+    }
     const ownerIds = jobs.map(e => e.owner);
+    console.log(ownerIds);
     // Step 2: Fetch all matching companies in one query
     const companies = await Company.find({ companyId: { $in: ownerIds } });
-    const companyMap = new Map(companies.map(c => [c.companyId.toString(), c]));
+    console.log(companies,"com");
+     const companyMap = new Map(companies.map(c => [c.companyId.toString(), c]));
     const enrichedjobs = jobs.map(i => ({
          ...i.toObject(),
         company: companyMap.get(i.owner.toString())
@@ -30,7 +50,7 @@ router.get("/:id",isLoggedIn,saveredirectUrl,wrapAsync(async(req,res)=>{
     let company =await Company.find({companyId:companyid});
     let applied=await Application.find({userId:req.user._id,jobId:id});
     let path=res.locals.redirect;
-    res.render("/student/jobshow.ejs",{job,company,applied,path});
+    res.render("student/jobshow.ejs",{job,company,applied,path});
 }));
 
 

@@ -131,3 +131,16 @@ body{
     border-color: white;
     color:black
 }
+.filters{
+        display:flex;
+        justify-content: center;
+        margin:2rem 1rem 0 2rem;
+    }
+.filter{
+        display:inline;
+        margin-left: 2rem;
+    }
+.filters p{
+        font-size:x-large;
+        margin-right: 1rem;
+    }

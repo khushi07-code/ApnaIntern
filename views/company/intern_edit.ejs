@@ -41,6 +41,10 @@
                             <input id="stipend" name="list[stipend]" placeholder="stipend"  type="number" class="form-control" value="<%=internship.stipend%>"  required>
                 </div>
                 <div class="mb-3">
+                        <label for="duration" class="form-label"><b>Duration:</b></label>
+                        <input id="duration" name="list[duration]" placeholder="duration"  type="number" value="<%=internship.duration%>" class="form-control">
+                </div>
+                <div class="mb-3">
                     <label for="description" class="form-label"><b>Description:</b></label>
                     <textarea id="description" name="list[description]" placeholder="decription"  type="text" class="form-control"  required><%=internship.description%></textarea>
                 </div>

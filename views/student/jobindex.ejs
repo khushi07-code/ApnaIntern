@@ -1,10 +1,69 @@
 <%- layout("/layouts/boilerplate")%>
 <body>
-    <h1>Job</h1>
+    <form class="filters">
+        <p class="align-self-center"><b>Filters:</b></p>
+            <div class="filter">
+                <b>Categories</b>
+                <select class="form-select" name="categories" >
+                        <option value="" selected>All Categories</option>
+                          <option value="Software Engineering">Software Engineering</option>
+                          <option value="Marketing">Marketing</option>
+                          <option value="Data & Analytics">Data & Analytics</option>
+                          <option value="Design">Design</option>
+                          <option value="Project Management">Project Management</option>
+                          <option value="Customer Support">Customer Support</option>
+                          <option value="Product">Product</option>
+                          <option value="HR">HR</option>
+                          <option value="Quality Assurance">Quality Assurance</option>
+                          <option value="Networking & IT">Networking & IT</option>
+                          <option value="Business Development">Business Development</option>
+                          <option value="Sales">Sales</option>
+                          <option value="Operations">Operations</option>
+                          <option value="DevOps">DevOps</option>
+                          <option value="Content">Content</option>
+                </select>
+            </div>
+            <div class="filter">
+                <b>Type:</b>
+                <select class="form-select" name="jobType">
+                        <option selected>select type</option>
+                        <option value="Full-time">Full Time</option>
+                        <option value="Part-time">Part Time</option>
+                        <option value="Contract">Cantract</option>
+                </select>
+            </div>
+            <div class="filter">
+                <b>Location</b>
+                <select class="form-select" name="location">
+                        <option value="" selected>All Locations</option>
+                        <option value='{"city":"New York","country":"USA"}'>New York, USA</option>
+                        <option value='{"city":"San Francisco","country":"USA"}'>San Francisco, USA</option>
+                        <option value='{"city":"Toronto","country":"Canada"}'>Toronto, Canada</option>
+                        <option value='{"city":"London","country":"UK"}'>London, UK</option>
+                        <option value='{"city":"Berlin","country":"Germany"}'>Berlin, Germany</option>
+                        <option value='{"city":"Paris","country":"France"}'>Paris, France</option>
+                        <option value='{"city":"Tokyo","country":"Japan"}'>Tokyo, Japan</option>
+                        <option value='{"city":"Sydney","country":"Australia"}'>Sydney, Australia</option>
+                        <option value='{"city":"Bangalore","country":"India"}'>Bangalore, India</option>
+                        <option value='{"city":"Singapore","country":"Singapore"}'>Singapore</option>
+                        <option value='{"city":"Dublin","country":"Ireland"}'>Dublin, Ireland</option>
+                        <option value='{"city":"Amsterdam","country":"Netherlands"}'>Amsterdam, Netherlands</option>
+                        <option value='{"city":"Dubai","country":"UAE"}'>Dubai, UAE</option>
+                        <option value='{"city":"São Paulo","country":"Brazil"}'>São Paulo, Brazil</option>
+                        <option value='{"city":"Mexico City","country":"Mexico"}'>Mexico City, Mexico</option>
+                        <option value='{"city":"Cape Town","country":"South Africa"}'>Cape Town, South Africa</option>
+                        <option value='{"city":"Stockholm","country":"Sweden"}'>Stockholm, Sweden</option>
+                        <option value='{"city":"Auckland","country":"New Zealand"}'>Auckland, New Zealand</option>
+                        <option value='{"city":"Zurich","country":"Switzerland"}'>Zurich, Switzerland</option>
+                        <option value='{"city":"Seoul","country":"South Korea"}'>Seoul, South Korea</option>
+                </select>
+            </div>
+            <button class="btn btn-primary">filter</button>
+    </form>
     <br>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+    <div class="d-flex flex-wrap justify-content-around p-2">
         <% for(let i=0 ; i<enrichedjobs.length;i++ ){%>
-        <div class="card col intern-card" style="width: 20rem;">
+        <div class="card  intern-card" style="width: 20rem;">
            <div class="card-body">
                 <div>
                     <h5 class="card-title"><%= enrichedjobs[i].title %></h5>

@@ -27,9 +27,9 @@ app.use(express.static(path.join(__dirname,"/public")));
 app.use(methodOverride("_method"));
 
 
-
+const MongoUrl=process.env.MONGODBURL;
 async function main(){
-    await mongoose.connect(process.env.MONGODBURL);
+    await mongoose.connect(MongoUrl);
 }
 main().then((res)=>{
     console.log(res);
@@ -37,9 +37,9 @@ main().then((res)=>{
 }).catch((err)=>{
     console.log(err);
 });
-
+console.log(MongoUrl);
 const store=MongoStore.create({
-  mongoUrl: process.env.MONGODBURL,
+  mongoUrl: MongoUrl,
   crypto: {
     secret: process.env.SECRET
   },

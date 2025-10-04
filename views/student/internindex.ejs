@@ -1,14 +1,65 @@
 <%- layout("/layouts/boilerplate")%>
 <body>
-    <div>
-        <p>Filter</p>
-        <div class="filters">
-            <divc class="filter">
-                <p></p>
+    <form class="filters">
+        <p class="align-self-center"><b>Filters:</b></p>
+            <div class="filter">
+                <b>Categories</b>
+                <select class="form-select" class="categories">
+                        <option selected>categories</option>
+                        <option>All</option>
+                        <option value="Software Engineering">Software Engineering </option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="Content Writing">Content Writing</option>
+                        <option value="Graphic Design">Graphic Design</option>
+                        <option value="Cybersecurity">Cybersecurity</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance </option>
+                        <option value="AI">AI</option>
+                        <option value="Full-Stack">Full-Stack</option>
+                        <option value="Event Management">Event Management</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Mobile App"> Mobile App</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Product Management">Product Management</option>
+                        <option value="Business Analyst">Business Analyst</option>
+                        <option value="Research">Research </option>
+                </select>
             </div>
-        </div>
-    </div>
-    <h1 class="pt-4 px-4">Internship</h1>
+            <div class="filter">
+                <b>Duration:</b>
+                <select class="form-select" name="duration">
+                        <option selected>duration</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="filter">
+                <b>Location</b>
+                <select class="form-select" name="location">
+                        <option value='{"city":"Boston","country":"USA"}'>Boston, USA</option>
+                        <option value='{"city":"Los Angeles","country":"USA"}'>Los Angeles, USA</option>
+                        <option value='{"city":"Montreal","country":"Canada"}'>Montreal, Canada</option>
+                        <option value='{"city":"Manchester","country":"UK"}'>Manchester, UK</option>
+                        <option value='{"city":"Barcelona","country":"Spain"}'>Barcelona, Spain</option>
+                        <option value='{"city":"Munich","country":"Germany"}'>Munich, Germany</option>
+                        <option value='{"city":"Rome","country":"Italy"}'>Rome, Italy</option>
+                        <option value='{"city":"Seoul","country":"South Korea"}'>Seoul, South Korea</option>
+                        <option value='{"city":"Shanghai","country":"China"}'>Shanghai, China</option>
+                        <option value='{"city":"Mumbai","country":"India"}'>Mumbai, India</option>
+                        <option value='{"city":"Delhi","country":"India"}'>Delhi, India</option>
+                        <option value='{"city":"Melbourne","country":"Australia"}'>Melbourne, Australia</option>
+                        <option value='{"city":"Nairobi","country":"Kenya"}'>Nairobi, Kenya</option>
+                        <option value='{"city":"Buenos Aires","country":"Argentina"}'>Buenos Aires, Argentina</option>
+                        <option value='{"city":"Istanbul","country":"Turkey"}'>Istanbul, Turkey</option>
+                        <option value='{"city":"Copenhagen","country":"Denmark"}'>Copenhagen, Denmark</option>
+                        <option value='{"city":"Lisbon","country":"Portugal"}'>Lisbon, Portugal</option>
+                        <option value='{"city":"Wellington","country":"New Zealand"}'>Wellington, New Zealand</option>
+                </select>
+            </div>
+            <button class="btn btn-primary">filter</button>
+    </form>
     <br>
     <div class="d-flex flex-wrap justify-content-around p-2">
         <% for(let i=0 ; i<enrichedInternships.length;i++ ) {%>

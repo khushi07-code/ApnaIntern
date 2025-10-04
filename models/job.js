@@ -48,6 +48,9 @@ const jobSchema = new Schema({
   applicationDeadline: {
     type: Date
   },
+  category:{
+     type:String
+  },
   owner:{
         type:Schema.Types.ObjectId,
         ref:"User"

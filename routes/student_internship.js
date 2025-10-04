@@ -9,7 +9,25 @@ const User=require("../models/user.js");
 
 //internship index
 router.get("/",isLoggedIn,wrapAsync(async(req,res)=>{
-    let internships = await Internship.find({});
+    let internships;
+    const{location,duration,categories}=req.query;
+    const filter = {};
+        if (location) {
+            try {
+                const parsedLocation = JSON.parse(location);
+                if (parsedLocation.city) filter["location.city"] = parsedLocation.city;
+                if (parsedLocation.country) filter["location.country"] = parsedLocation.country;
+            } catch (err) {
+                console.warn("Invalid location format");
+            }
+        }
+        if (categories) filter["category"]=categories;
+        if (duration) filter["duration"]=duration;
+    if(filter){
+        internships = await Internship.find(filter);
+    }else{
+        internships = await Internship.find({});
+    }
     const ownerIds = internships.map(e => e.owner);
     // Step 2: Fetch all matching companies in one query
     const companies = await Company.find({ companyId: { $in: ownerIds } });

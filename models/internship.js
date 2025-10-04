@@ -49,6 +49,9 @@ const intershipSchema=new Schema({
         type:Schema.Types.ObjectId,
         ref:"User"
     },
+    category:{
+        type:String,
+    },
     postedAt:{
         type:Date,
         default: Date.now(),
