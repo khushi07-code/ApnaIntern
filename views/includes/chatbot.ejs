@@ -12,12 +12,12 @@
   <input id="chat-input" placeholder="Ask about internships..." autocomplete="off" />
 </div>
 
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const socket = io("http://localhost:3000");
+    const socket = io();
     const toggle = document.getElementById("chat-toggle");
     const chatWindow = document.getElementById("chat-window");
     const closeBtn = document.getElementById("chat-close");

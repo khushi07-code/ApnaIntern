@@ -58,12 +58,12 @@ const sessionOption={
 };
 
 
+const http = require("http");
+const { Server } = require("socket.io");
+const server = http.createServer(app);
 
-
-
-
-
-
+// ✅ Enable CORS for frontend on port 8080
+const io = new Server(server);
 
 
 
@@ -127,6 +127,27 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
 });
 
-app.listen(8080,(req,res)=>{
-    console.log("listening..............");
+
+io.on("connection", (socket) => {
+  console.log("User connected");
+
+  socket.on("userMessage", (msg) => {
+    const reply = generateBotReply(msg);
+    socket.emit("botReply", reply);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected");
+  });
+});
+
+function generateBotReply(msg) {
+  msg = msg.toLowerCase();
+  if (msg.includes("internship")) return "Try filtering by category or location!";
+  if (msg.includes("hello")) return "Hi there! How can I help you today?";
+  return "I'm still learning. Can you rephrase that?";
+}
+
+server.listen(8080, () => {
+  console.log("Server running at http://localhost:8080");
 });
