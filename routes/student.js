@@ -7,6 +7,9 @@ const { optionstudent, isLoggedIn } = require("../utils/middleware.js");
 const Application=require("../models/application.js");
 const Company=require("../models/company.js");
 const Student = require("../models/student.js");
+const multer  = require('multer');
+const {storage}=require("../cloudConfig.js")
+const upload = multer({ storage });
 
 router.get("/",wrapAsync(async(req,res)=>{
     const internships=await Internship.find({}).limit(4);
@@ -48,11 +51,12 @@ router.get("/details",isLoggedIn,(req,res)=>{
     res.render("student/studentprofile.ejs");
 });
 
-router.post("/details",wrapAsync(async(req,res)=>{
+router.post("/details",upload.single("list[resumeUrl]"),wrapAsync(async(req,res)=>{
     const rawSkills = req.body.list.skills;
     const skillsArray = rawSkills.split(',').map(skill => skill.trim()).filter(Boolean);
     req.body.list.skills=skillsArray;
     let list=req.body.list;
+    list.resumeUrl=req.file.path;
     list.studentId=req.user.id;
     let student=new Student(list);
     
