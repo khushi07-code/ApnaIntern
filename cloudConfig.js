@@ -11,7 +11,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'Apnaintern_DEV',
-    allowedformat:["png","jpg","jpeg"],
+    allowedformat:["png","jpg","jpeg","pdf"],
   },
 });
 

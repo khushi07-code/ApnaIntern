@@ -11,6 +11,7 @@ router.get("/signup",(req,res)=>{
 
 router.get("/aftersignup",(req,res)=>{
     let {usertype}=req.query;
+    console.log(usertype);
     res.render("signup.ejs",{usertype});
 });
 
@@ -34,7 +35,7 @@ router.post("/signup",wrapAsync(async(req,res,next)=>{
             
         });
     }catch(e){
-        console.error("signup:",e);
+        console.error("signup:",e.message);
         req.flash("error",e.message);
         if(usertype==="student"){
             res.redirect("/aftersignup?usertype=student");
