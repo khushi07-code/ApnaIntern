@@ -36,7 +36,11 @@ const studentSchema= new Schema({
         type:[String]
     },
     resumeUrl:{
-        type:String
+        url:{
+            type:String,
+            required:true
+        },
+        filename:String
     },
     createdAt: {
         type: Date,

@@ -85,6 +85,7 @@ router.get("/details",isLoggedIn,(req,res)=>{
 router.post("/details",isLoggedIn,wrapAsync(async(req,res)=>{
     let list=req.body.list;
     let Companyone=new Company(list);
+    Companyone.companyId=req.user._id;
     let saved=await Companyone.save();
      if(saved){
         req.flash("success","Welcome to ApnaIntern!");

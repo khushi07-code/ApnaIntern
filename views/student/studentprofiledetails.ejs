@@ -4,17 +4,17 @@
     <div class="col-6 offset-3">
         <div class="card mt-3 mb-4" >
             <div class="card-body">
-                <h5 class="card-title"><%=student[0].name%></h5>
+                <h5 class="card-title d-flex  justify-content-between"><%=student.name%><a href="/Student/profile/<%=student._id%>/edit"><i class="fa-solid fa-pen"></i></a></h5>
                 <h6 class="card-text"><%=User.email%></h6>
                 <hr>
-                <p class="card-text"><b>Gender</b><br><%=student[0].gender%></p>
-                <p class="card-text"><b>Address</b><br><%=student[0].address%></p>
-                <p class="card-text"><b>College</b><br><%=student[0].college%></p>
-                <p class="card-text"><b>Course</b><br><%=student[0].course%></p>
-                <p class="card-text"><b>Branch</b><br><%=student[0].branch%></p>
-                <p class="card-text"><b>Semester</b><br><%=student[0].semester%></p>
-                <p class="card-text"><b>Skill</b><br><%=student[0].skills%></p>
-                <a href="#" class="card-link">Card link</a>
+                <p class="card-text"><b>Gender</b><br><%=student.gender%></p>
+                <p class="card-text"><b>Address</b><br><%=student.address%></p>
+                <p class="card-text"><b>College</b><br><%=student.college%></p>
+                <p class="card-text"><b>Course</b><br><%=student.course%></p>
+                <p class="card-text"><b>Branch</b><br><%=student.branch%></p>
+                <p class="card-text"><b>Semester</b><br><%=student.semester%></p>
+                <p class="card-text"><b>Skill</b><br><%=student.skills%></p>
+                <a href="<%= student.resumeUrl.url %>" target="_blank" class="btn btn-outline-primary"><i class="fa-solid fa-file"></i>&nbsp; Resume</a>
             </div>
         </div>   
     </div>

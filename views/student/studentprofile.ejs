@@ -2,7 +2,7 @@
 <body>
 <div class="row mt-3 ">
     <div class="col-6 offset-3">
-        <form method="post" action="/Student/details" novalidate class="needs-validation mb-10">
+        <form method="post" action="/Student/details" novalidate class="needs-validation mb-10" enctype="multipart/form-data">
                 <div class="mb-3"> 
                     <label for="name" class="form-label"><b>Name</b></label>
                     <input id="name" name="list[name]" placeholder="name" type="text" class="form-control" required>
@@ -46,12 +46,16 @@
                     <label for="skills" class="form-label"><b>Skills</b></label>
                     <input id="skills" name="list[skills]" placeholder="skills"  type="text" class="form-control"  required>
                 </div>
-                <div class="mb-3">
-                    <label for="resume" class="form-label"><b>Resumelink</b></label>
-                    <input id="resume" name="list[resumeUrl]"  type="file" class="form-control"  required>
+                 <div class="file-upload-wrapper mt-2 mb-3">
+                                <input type="file" name="list[resumeUrl][url]" id="fileInput" class="file-input" hidden>
+                                <label for="fileInput" class="file-label">
+                                        <i class="fa-solid fa-upload"></i> upload Resume
+                                </label>
+                                <span id="file-name" class="file-name">No file chosen</span>
                 </div>
                 <button class="btn btn-success">Save</button>
         </form>
     </div>
 </div>
 </body>
+<script src="/uploadfilename.js"></script>

@@ -17,14 +17,16 @@ router.get("/aftersignup",(req,res)=>{
 router.post("/signup",wrapAsync(async(req,res,next)=>{
     try{
         let {usertype}=req.query;
+        console.log(usertype,"usertype")
         const {username,email,password}=req.body;
+        console.log(username,password);
         const newUser=new User({username,email,usertype});
         let registerUser=await User.register(newUser,password);
         req.login(registerUser,(err)=>{
             if(err){
                 next(err);
             }
-            if(usertype=="student"){
+            if(usertype==="student"){
                 res.redirect("/student/details");
             }else{
                 res.redirect("/company/details");
@@ -32,8 +34,9 @@ router.post("/signup",wrapAsync(async(req,res,next)=>{
             
         });
     }catch(e){
+        console.error("signup:",e);
         req.flash("error",e.message);
-        if(usertype=="student"){
+        if(usertype==="student"){
             res.redirect("/aftersignup?usertype=student");
         }else{
             res.redirect("/aftersignup?usertype=company");

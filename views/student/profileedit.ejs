@@ -1,0 +1,54 @@
+<%- layout("/layouts/boilerplate")%>
+<body>
+<div class="row mt-3 ">
+    <div class="col-6 offset-3">
+        <h3>Profile &nbsp;<i class="fa-solid fa-pen"></i> </h3>
+        <br>
+        <form method="post" action="/Student/<%=student._id%>" novalidate class="needs-validation mb-10" enctype="multipart/form-data">
+                <div class="mb-3"> 
+                    <label for="name" class="form-label"><b>Name</b></label>
+                    <input id="name" name="list[name]" value=<%=student.name%> placeholder="name" type="text" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                        <label for="address" class="form-label"><b>Address</b></label>
+                        <input id="address" name="list[address]" value=<%=student.address%> placeholder="plot no./house no....etc"  type="text" class="form-control"  required>
+                </div>
+                <div class="mb-3 ">
+                    <label for="College" class="form-label"><b>College</b></label>
+                    <input id="College" name="list[college]" value=<%=student.college%> placeholder="College name"  type="text" class="form-control"  required>
+                </div>
+                <div class="mb-3">
+                    <label for="Course" class="form-label"><b>Course</b></label>
+                    <input id="Course" name="list[course]" value=<%=student.course%> placeholder="Course"  type="text" class="form-control"  required>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-8">
+                        <label for="Branch" class="form-label"><b>Branch</b></label>
+                        <input id="Branch" name="list[branch]" value=<%=student.branch%> placeholder="Branch"  type="text" class="form-control"  required>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="semester" class="form-label"><b>Semester</b></label>
+                        <input id="semester" name="list[semester]" value=<%=student.semester%> placeholder="semester"  type="number" class="form-control"  required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="skills" class="form-label"><b>Skills</b></label>
+                    <input id="skills" name="list[skills]" value=<%=student.skills%> placeholder="skills"  type="text" class="form-control"  required>
+                </div>
+               
+                <a href="<%= student.resumeUrl.url %>" target="_blank" class="border border-dark resumebtn p-1"><i class="fa-solid fa-file"></i>&nbsp; Resume</a>
+                   
+                <div class="file-upload-wrapper mt-2 mb-3">
+                                <input type="file" name="list[resumeUrl][url]" id="fileInput" class="file-input" hidden>
+                                <label for="fileInput" class="file-label">
+                                        <i class="fa-solid fa-upload"></i> upload Resume
+                                </label>
+                                <span id="file-name" class="file-name">No file chosen</span>
+                </div>
+                <button class="btn btn-success mb-3">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+<script src="/uploadfilename.js"></script>

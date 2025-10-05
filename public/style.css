@@ -237,3 +237,46 @@ body{
   box-sizing: border-box;
   outline: none;
 }
+
+/* upload/ */
+ .file-upload-wrapper {
+   display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.file-label {
+  color:blue;
+  padding: 10px 20px;
+  border:1px solid blue;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+  background-color:blue;
+  color:white;
+}
+
+.file-name {
+  font-style: italic;
+  color: #6c757d;
+}
+
+.submit-btn {
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.resumebtn{
+    width:50%;
+    border-radius:0.5rem;
+    text-decoration: none;
+    color:black;
+}

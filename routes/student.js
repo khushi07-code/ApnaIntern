@@ -51,12 +51,15 @@ router.get("/details",isLoggedIn,(req,res)=>{
     res.render("student/studentprofile.ejs");
 });
 
-router.post("/details",upload.single("list[resumeUrl]"),wrapAsync(async(req,res)=>{
+router.post("/details",upload.single("list[resumeUrl][url]"),wrapAsync(async(req,res)=>{
     const rawSkills = req.body.list.skills;
     const skillsArray = rawSkills.split(',').map(skill => skill.trim()).filter(Boolean);
     req.body.list.skills=skillsArray;
     let list=req.body.list;
-    list.resumeUrl=req.file.path;
+    list.resumeUrl={
+        url:req.file.path,
+        filename:req.file.filename
+    }
     list.studentId=req.user.id;
     let student=new Student(list);
     
@@ -68,10 +71,15 @@ router.post("/details",upload.single("list[resumeUrl]"),wrapAsync(async(req,res)
 }));
 router.get("/profile",isLoggedIn,wrapAsync(async(req,res)=>{
     let User=req.user;
-    console.log(User);
     let student=await Student.find({studentId:req.user.id});
-    console.log(student,"hello");
+    student=student[0];
+    console.log(student);
     res.render("student/studentprofiledetails.ejs",{student,User});
+}));
+router.get("/profile/:id/edit",wrapAsync(async(req,res)=>{
+    let {id}=req.params;
+    let student=await Student.findById(id);
+    res.render("student/profileedit.ejs",{student});
 }));
 
 module.exports=router;
