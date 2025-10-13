@@ -142,11 +142,41 @@ io.on("connection", (socket) => {
 });
 
 function generateBotReply(msg) {
-  msg = msg.toLowerCase();
-  if (msg.includes("internship")) return "Try filtering by category or location!";
-  if (msg.includes("hello")) return "Hi there! How can I help you today?";
-  return "I'm still learning. Can you rephrase that?";
+    msg = msg.toLowerCase();
+
+    // Mock job/internship data
+    const opportunities = [
+        { type: "internship", title: "Frontend Developer Intern", location: "Remote" },
+        { type: "internship", title: "Data Analyst Intern", location: "New York" },
+        { type: "job", title: "Software Engineer", location: "San Francisco" },
+        { type: "job", title: "Product Manager", location: "Remote" }
+    ];
+
+    if (msg.includes("internship")) {
+        const internships = opportunities.filter(op => op.type === "internship");
+        let reply = "Here are some internship recommendations:\n";
+        internships.forEach((op, i) => {
+            reply += `${i + 1}. ${op.title} - ${op.location}\n`;
+        });
+        return reply;
+    }
+
+    if (msg.includes("job")) {
+        const jobs = opportunities.filter(op => op.type === "job");
+        let reply = "Here are some job recommendations:\n";
+        jobs.forEach((op, i) => {
+            reply += `${i + 1}. ${op.title} - ${op.location}\n`;
+        });
+        return reply;
+    }
+
+    if (msg.includes("hello") || msg.includes("hi")) {
+        return "Hi there! How can I help you today?";
+    }
+
+    return "I'm still learning. Can you rephrase that?";
 }
+
 
 server.listen(8080, () => {
   console.log("Server running at http://localhost:8080");
