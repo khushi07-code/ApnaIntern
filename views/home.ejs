@@ -1,78 +1,97 @@
 <%- layout("/layouts/mainboilerplate.ejs")%>
-<body>
-<div>
-    <img src="underimage.jpg" class="img-fluid" alt="..." height="80px">
-</div>
-<div class="card-img-overlay">
-        <h1 class="display-1">WELCOME TO Apna Intern......</h1>
-        <p class="lead-1"> Your Gateway to Better Opportunities!</p>
-</div>
-<div class="secondpage">
-    <p class="heading-1">
-        Your Gateway to Better Opportunities!
-    </p>
-    <p class="body-1">
-        At APAN INTERN, we connect job seekers with top employers across various industries. Whether you're a fresh graduate looking for your first job or a seasoned professional seeking your next career move, we make your job search simple, smart, and successful.
-    </p>
-</div>
-<div class="thirdpage">
-        <div class="offer-body">
-            <span class="heading-2">What We Offer:</span>
-            <p class="body-2">
-                🔍 Advanced job search filters to find roles that match your skills and interests
-                <br>
-                📝 Easy resume uploads and application tracking
-                <br>
-                🧠 Career resources, resume tips, and interview guidance
-                <br>
-                💼 Verified job listings from trusted employers
-                <br>
-            </p>
-            <h4> Join thousands of job seekers who have taken the next step in their careers with us. Start your journey today</h4>
 
-        </div>
-       <img src="Screenshot 2025-05-22 135737.png" class="rounded float-end" alt="...">
+<head>
+    <!-- Ensure responsive behavior -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<div class="container-fluid p-0">
+    <img src="underimage.jpg" class="img-fluid w-100" alt="Banner Image" style="max-height: 500px; object-fit: cover;">
+    
+    <!-- Responsive overlay content -->
+    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center text-white">
+        <h1 class="display-4 display-md-1">WELCOME TO Apna Intern......</h1>
+        <p class="lead">Your Gateway to Better Opportunities!</p>
+    </div>
 </div>
-<br>
-<br>
-<div class="container-job">
-    <span class="heading-2 job">Explore internships</span>
-    <div class="show-list p-3 mb-3 ">
-        <div class="row">
-            <% for(internship of internships){ %>
-            <div class="card mx-2" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><%= internship.title %></h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= internship.internshiptype %></h6>
-                    <p class="card-text"><%= internship.location.city%>,<%=internship.location.country%></p>
-                    <p class="card-text"><%= internship.stipend %>/month</p>
-                    <a href="/student/internship/<%=internship._id%>" class="btn btn-outline-primary mt-2">Details</a>
-                </div>
+
+<div class="container my-4 secondpage text-center">
+    <p class="h4 mb-3">Your Gateway to Better Opportunities!</p>
+    <p class="px-2">
+        At APNA INTERN, we connect job seekers with top employers across various industries. Whether you're a fresh graduate looking for your first job or a seasoned professional seeking your next career move, we make your job search simple, smart, and successful.
+    </p>
+</div>
+
+<div class="container thirdpage my-5">
+    <div class="row align-items-center">
+        <div class="col-md-7 mb-4 mb-md-0">
+            <div class="offer-body">
+                <span class="h5 d-block mb-2">What We Offer:</span>
+                <ul class="list-unstyled">
+                    <li>🔍 Advanced job search filters to find roles that match your skills and interests</li>
+                    <li>📝 Easy resume uploads and application tracking</li>
+                    <li>🧠 Career resources, resume tips, and interview guidance</li>
+                    <li>💼 Verified job listings from trusted employers</li>
+                </ul>
+                <h4 class="mt-4">
+                    Join thousands of job seekers who have taken the next step in their careers with us. Start your journey today.
+                </h4>
             </div>
-         <% } %>
-        <div class="col more-option"><a href="/student/internship" class="btn btn-outline-primary">more</a></div>
+        </div>
+        <div class="col-md-5 text-center">
+            <img src="Screenshot 2025-05-22 135737.png" class="img-fluid rounded shadow" alt="Offer Image">
         </div>
     </div>
-    <br>
-    <span class="heading-2 job">Explore Jobs</span>
-    <div class="show-list p-3 mb-5">
+</div>
+
+<div class="container container-job mb-5">
+    <!-- Internships Section -->
+    <span class="h4 d-block mb-3 text-center">Explore Internships</span>
+    <div class="show-list p-3 mb-4">
         <div class="row">
-            <% for(job of jobs){ %>
-            <div class="card mx-2" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><%= job.title %></h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= job.jobType %></h6>
-                    <p class="card-text"><%= job.location.city%>,<%=job.location.country%></p>
-                    <p class="card-text"><%= job.salaryRange.min%>-<%= job.salaryRange.max%>/month</p>
-                    <a href="/student/job/<%=job._id%>" class="btn btn-outline-primary mt-2">Details</a>
+            <% for (internship of internships) { %>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= internship.title %></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= internship.internshiptype %></h6>
+                        <p class="card-text"><%= internship.location.city %>, <%= internship.location.country %></p>
+                        <p class="card-text"><%= internship.stipend %>/month</p>
+                        <a href="/student/internship/<%= internship._id %>" class="btn btn-outline-primary mt-2 w-100">Details</a>
+                    </div>
                 </div>
             </div>
             <% } %>
-            <div class="col more-option"><a href="/student/job" class="btn btn-outline-primary">more</a></div>
         </div>
-        
+        <div class="text-center mt-3">
+            <a href="/student/internship" class="btn btn-outline-primary">More</a>
+        </div>
+    </div>
+
+    <!-- Jobs Section -->
+    <span class="h4 d-block mb-3 text-center">Explore Jobs</span>
+    <div class="show-list p-3">
+        <div class="row">
+            <% for (job of jobs) { %>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= job.title %></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= job.jobType %></h6>
+                        <p class="card-text"><%= job.location.city %>, <%= job.location.country %></p>
+                        <p class="card-text"><%= job.salaryRange.min %>-<%= job.salaryRange.max %>/month</p>
+                        <a href="/student/job/<%= job._id %>" class="btn btn-outline-primary mt-2 w-100">Details</a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/student/job" class="btn btn-outline-primary">More</a>
+        </div>
     </div>
 </div>
-
 
 </body>

@@ -8,15 +8,22 @@ body{
     min-height:100vh;
 
 }
-
-
-.display-1{
-    align-items: center;
-    justify-content: center;
-    margin-top: 20%;
-    font-weight: bolder;
-    padding-left: 2rem;
+.display-1 {
+    font-weight: 800;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    font-size: 2.5rem;
 }
+
+@media (min-width: 768px) {
+    .display-1 {
+        font-size: 4rem;
+        margin-top: 5rem;
+    }
+}
+
+
 
 .navbar{
     height: 5rem;
