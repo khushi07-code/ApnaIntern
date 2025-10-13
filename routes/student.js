@@ -14,7 +14,9 @@ const upload = multer({ storage });
 router.get("/",wrapAsync(async(req,res)=>{
     const internships=await Internship.find({}).limit(4);
     const jobs=await Job.find({}).limit(4);
-    const student=await Student.find({studentId:req.user.id});
+    const student=await Student.find({studentId:req.user._id});
+    console.log(req.user);
+    console.log(student,"student");
     res.render("student.ejs",{internships,jobs,student});
 }));
 

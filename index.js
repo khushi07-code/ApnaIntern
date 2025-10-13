@@ -16,7 +16,8 @@ const User = require("./models/user.js");
 const Internship = require("./models/internship.js");
 const Job = require("./models/job.js");
 const methodOverride=require("method-override");
-
+const FAQ=require("./models/faq.js");
+const Opportunity=require("./models/oppotunity.js");
 
 
 app.set("view engine","ejs");
@@ -26,17 +27,22 @@ app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(methodOverride("_method"));
 
-
+let db;
 const MongoUrl=process.env.MONGODBURL;
 async function main(){
-    await mongoose.connect(MongoUrl);
+    await mongoose.connect(process.env.MONGODBURL);
 }
-main().then((res)=>{
-    console.log(res);
-    console.log("connected to DB");
-}).catch((err)=>{
-    console.log(err);
-});
+
+
+main()
+  .then(() => {
+    console.log("Database Connected!");
+  
+  })
+  .catch(console.error);
+
+
+
 console.log(MongoUrl);
 const store=MongoStore.create({
   mongoUrl: MongoUrl,
@@ -127,55 +133,105 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render("error.ejs",{message});
 });
 
+// GET internships/jobs
+app.get("/api/opportunities", async (req, res) => {
+  try {
+    const type = req.query.type;
+    if (!type) return res.status(400).json({ error: "Type query param is required" });
 
-io.on("connection", (socket) => {
-  console.log("User connected");
-
-  socket.on("userMessage", (msg) => {
-    const reply = generateBotReply(msg);
-    socket.emit("botReply", reply);
-  });
-
-  socket.on("disconnect", () => {
-    console.log("User disconnected");
-  });
+    const data = await Opportunity.find({ type });
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
-function generateBotReply(msg) {
-    msg = msg.toLowerCase();
+// GET FAQ Answer
+app.get("/api/faq", async (req, res) => {
+  try {
+    const q = req.query.q?.toLowerCase() || "";
+    const result = await FAQ.findOne({ question: { $regex: q, $options: "i" } });
 
-    // Mock job/internship data
-    const opportunities = [
-        { type: "internship", title: "Frontend Developer Intern", location: "Remote" },
-        { type: "internship", title: "Data Analyst Intern", location: "New York" },
-        { type: "job", title: "Software Engineer", location: "San Francisco" },
-        { type: "job", title: "Product Manager", location: "Remote" }
-    ];
-
-    if (msg.includes("internship")) {
-        const internships = opportunities.filter(op => op.type === "internship");
-        let reply = "Here are some internship recommendations:\n";
-        internships.forEach((op, i) => {
-            reply += `${i + 1}. ${op.title} - ${op.location}\n`;
-        });
-        return reply;
+    if (result) {
+      res.json(result);
+    } else {
+      res.json({ answer: "Sorry, I don't have an answer for that." });
     }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
-    if (msg.includes("job")) {
-        const jobs = opportunities.filter(op => op.type === "job");
-        let reply = "Here are some job recommendations:\n";
-        jobs.forEach((op, i) => {
-            reply += `${i + 1}. ${op.title} - ${op.location}\n`;
-        });
-        return reply;
+// ✅ WebSocket Chatbot Logic
+io.on("connection", (socket) => {
+  socket.on("userMessage", async (msg) => {
+    const lowerMsg = msg.toLowerCase().trim();
+    console.log("💬 User message received:", lowerMsg);
+
+    const jobKeywords = ["job", "jobs", "hiring", "full-time", "career"];
+    const internshipKeywords = ["intern", "internship", "training", "trainee", "summer program"];
+    const applyKeywords = ["apply", "application", "how to apply", "submit resume"];
+
+    const containsKeyword = (keywords, text) =>
+      keywords.some(word => text.includes(word));
+
+    try {
+      console.log("🔍 Checking FAQ match...");
+
+      const faq = await FAQ.findOne({
+            question: { $regex: lowerMsg, $options: "i" }
+      });
+
+      if (faq) {
+        console.log("✅ FAQ match found:", faq.question);
+        return socket.emit("botReply", faq.answer);
+      }
+
+      if (containsKeyword(internshipKeywords, lowerMsg)) {
+        console.log("📌 Internship keyword matched");
+        const type = "internship";
+        const results = await Opportunity.find({ type });
+
+        if (results.length > 0) {
+          let reply = `Here are some ${type} opportunities:\n`;
+          results.forEach((item, i) => {
+            reply += `${i + 1}. ${item.title} - ${item.location}\n`;
+          });
+          socket.emit("botReply", reply);
+        } else {
+          socket.emit("botReply", `Sorry, no ${type} opportunities found at the moment.`);
+        }
+
+      } else if (containsKeyword(jobKeywords, lowerMsg)) {
+        console.log("📌 Job keyword matched");
+        const type = "job";
+        const results = await Opportunity.find({ type });
+
+        if (results.length > 0) {
+          let reply = `Here are some ${type} openings:\n`;
+          results.forEach((item, i) => {
+            reply += `${i + 1}. ${item.title} - ${item.location}\n`;
+          });
+          socket.emit("botReply", reply);
+        } else {
+          socket.emit("botReply", `Sorry, no ${type} openings available right now.`);
+        }
+
+      } else if (containsKeyword(applyKeywords, lowerMsg)) {
+          socket.emit("botReply", "To apply, click on any opportunity and upload your resume. Make sure your profile is complete!");
+      } else {
+        console.log("❓ Message didn't match FAQ or keyword");
+        socket.emit("botReply", "I'm still learning! You can ask about internships, jobs, or questions like 'How to apply'.");
+      }
+
+    } catch (err) {
+      console.error("❌ Error in chatbot logic:", err);
+      socket.emit("botReply", "Oops! Something went wrong. Please try again later.");
     }
-
-    if (msg.includes("hello") || msg.includes("hi")) {
-        return "Hi there! How can I help you today?";
-    }
-
-    return "I'm still learning. Can you rephrase that?";
-}
+  });
+});
 
 
 server.listen(8080, () => {

@@ -1,57 +1,62 @@
 <!-- Floating Chat Button -->
 <div id="chat-toggle" title="Need help? Chat with us!">💬</div>
 
-
 <!-- Chat Window -->
-<div id="chat-window">
+<div id="chat-window" style="display: none;">
   <div id="chat-header">
     ApnaIntern Bot
     <span id="chat-close">×</span>
   </div>
   <div id="chat-body"></div>
-  <input id="chat-input" placeholder="Ask about internships..." autocomplete="off" />
+  <input id="chat-input" placeholder="Ask about internships, jobs, or FAQs..." autocomplete="off" />
 </div>
 
+<!-- Socket.io -->
 <script src="/socket.io/socket.io.js"></script>
-
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const socket = io();
+
     const toggle = document.getElementById("chat-toggle");
     const chatWindow = document.getElementById("chat-window");
     const closeBtn = document.getElementById("chat-close");
     const input = document.getElementById("chat-input");
     const body = document.getElementById("chat-body");
 
+    // Open chat window
     toggle.onclick = () => {
       chatWindow.style.display = "flex";
     };
 
+    // Close chat window
     closeBtn.onclick = () => {
       chatWindow.style.display = "none";
     };
-    
 
+    // Send message on Enter key
     input.addEventListener("keypress", function (e) {
       if (e.key === "Enter" && input.value.trim()) {
-        const msg = input.value;
+        const msg = input.value.trim();
         appendMessage("user", msg);
-        socket.emit("userMessage", msg);
+        socket.emit("userMessage", msg); // Send to server
         input.value = "";
       }
     });
 
+    // Listen for bot reply
     socket.on("botReply", function (msg) {
       appendMessage("bot", msg);
     });
 
+    // Append message to chat
     function appendMessage(sender, text) {
       const div = document.createElement("div");
       div.className = sender === "user" ? "user-message" : "bot-message";
-      div.textContent = text;
+      div.innerHTML = text.replace(/\n/g, "<br>");
       body.appendChild(div);
-      body.scrollTop = body.scrollHeight;
+      body.scrollTop = body.scrollHeight; // Scroll to bottom
     }
   });
 </script>
+

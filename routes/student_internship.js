@@ -37,6 +37,7 @@ router.get("/",isLoggedIn,wrapAsync(async(req,res)=>{
         company: companyMap.get(i.owner.toString())
     }));
     console.log(enrichedInternships);
+
     res.render("student/internindex.ejs",{enrichedInternships});
 }));
 
