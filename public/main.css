@@ -134,7 +134,7 @@ body{
 
 
 
-* Floating Button */
+/* Floating Button */
 #chat-toggle {
   position: fixed;
   bottom: 20px;
